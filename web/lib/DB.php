@@ -45,8 +45,6 @@ class DB {
     	if($this->connection)
     		return;
     	$this->connection = mysqli_connect($this->cfg['host'], $this->cfg['username'], $this->cfg['password'], $this->cfg['database']);
-    	if($error = mysqli_error())
-    		throw new Exception(_("Database connection failed: ").$error);
     	if($error = mysqli_error($this->connection))
     		throw new Exception(_("Database connection failed: ").$error);
 
