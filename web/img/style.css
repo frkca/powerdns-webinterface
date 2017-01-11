@@ -28,7 +28,7 @@ h2 {
 
 #menu {
 	float: left;
-	background-color: #fee; 
+	background-color: #ffffff; 
 	width: 10em;
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -115,7 +115,7 @@ h2 {
 }
 
 .list th {
-	background-color: #f66;
+	background-color: #515151;
 	padding: 5px;
 }
 
