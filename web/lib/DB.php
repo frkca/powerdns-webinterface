@@ -45,9 +45,9 @@ class DB {
     	if($this->connection)
     		return;
     	$this->connection = mysqli_connect($this->cfg['host'], $this->cfg['username'], $this->cfg['password'], $this->cfg['database']);
-    	if($error = mysql_error())
+    	if($error = mysqli_error())
     		throw new Exception(_("Database connection failed: ").$error);
-    	if($error = mysql_error($this->connection))
+    	if($error = mysqli_error($this->connection))
     		throw new Exception(_("Database connection failed: ").$error);
 
 	// we use unicode so get into utf8 mode ;)
@@ -60,7 +60,7 @@ class DB {
      */
     private function disconnect() {
     	if($this->connection)
-    		mysql_close($this->connection);
+    		mysqli_close($this->connection);
     }
 
     /**
@@ -84,7 +84,7 @@ class DB {
     	$start = microtime();
     	$query = mysqli_query($this->connection, $sql);
     	$this->debug[] = array($sql, (microtime()-$start)*100000);
-    	if($error = mysql_error($this->connection))
+    	if($error = mysqli_error($this->connection))
     		throw new Exception("Error in SQL Query: {$sql} ({$error})");
     	return new DB_Result($query);
     }
@@ -135,7 +135,7 @@ class DB {
      * @return int
      */
     public function insertId() {
-    	return mysql_insert_id($this->connection);
+    	return mysqli_insert_id($this->connection);
     }
 
     /**
@@ -144,7 +144,7 @@ class DB {
      * @return int
      */
     public function affectedRows() {
-    	return mysql_affected_rows($this->connection);
+    	return mysqli_affected_rows($this->connection);
     }
 
     /**
@@ -175,8 +175,8 @@ class DB_Result {
 
 	public function fetchRow($num = 0) {
 		if($num)
-			return mysql_fetch_row($this->qr);
+			return mysqli_fetch_row($this->qr);
 		else
-			return mysql_fetch_assoc($this->qr);
+			return mysqli_fetch_assoc($this->qr);
 	}
 }
