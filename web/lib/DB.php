@@ -44,16 +44,15 @@ class DB {
     private function connect() {
     	if($this->connection)
     		return;
-    	$this->connection = mysql_connect($this->cfg['host'], $this->cfg['username'], $this->cfg['password']);
+    	$this->connection = mysqli_connect($this->cfg['host'], $this->cfg['username'], $this->cfg['password'], $this->cfg['database']);
     	if($error = mysql_error())
     		throw new Exception(_("Database connection failed: ").$error);
-    	mysql_select_db($this->cfg['database'], $this->connection);
     	if($error = mysql_error($this->connection))
     		throw new Exception(_("Database connection failed: ").$error);
 
 	// we use unicode so get into utf8 mode ;)
-    	mysql_query("SET NAMES 'utf8'", $this->connection);
-   	mysql_query("SET CHARACTER SET 'utf8'", $this->connection);
+    	mysqli_query($this->connection, "SET NAMES 'utf8'");
+   	mysqli_query($this->connection, "SET CHARACTER SET 'utf8'");
     }
 
     /**
@@ -83,7 +82,7 @@ class DB {
     private function _doQuery($sql) {
     	$this->connect();
     	$start = microtime();
-    	$query = mysql_query($sql, $this->connection);
+    	$query = mysqli_query($this->connection, $sql);
     	$this->debug[] = array($sql, (microtime()-$start)*100000);
     	if($error = mysql_error($this->connection))
     		throw new Exception("Error in SQL Query: {$sql} ({$error})");
