@@ -95,7 +95,7 @@ h2 {
 
 .logout_button a {
 	line-height: 16px;
-	color: #558;
+	color: #55a;
 	text-decoration: none;
 	vertical-align: middle;
 }
@@ -116,6 +116,7 @@ h2 {
 
 .list th {
 	background-color: #515151;
+	color: #dddddd;
 	padding: 5px;
 }
 
