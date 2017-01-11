@@ -19,10 +19,10 @@ h2 {
 #header {
 	font-weight: bold;
 	font-size: 15px;
-	background-color: #fcc;
-	border-bottom: 1px solid #f99;
+	background-color: #515151;
+	border-bottom: 10px solid #1967ba;
 	height: 20px;
-	color: #755;
+	color: #dddddd;
 	padding: 10px;
 }
 
