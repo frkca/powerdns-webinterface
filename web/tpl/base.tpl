@@ -9,6 +9,7 @@
 	<body>
 		<div id="wrapper">
 			<div id="header">
+            <img src="img/livebox-logo.png">
 				PowerDNS Webinterface
 				{if $app->Auth->isAuthed()}
 					<div class="logout_button">
@@ -63,7 +64,7 @@
 					{include file=$_TEMPLATE}
 					<div class="copyleft">
 						{if $app->Auth->isAuthed()}PowerDNS Webinterface {$app->Configuration->getValue('base/version')}<br />{/if}
-						Copyright 2011 Timo Witte Licensed under the Apache License (2.0)
+						Copyright 2011 Timo Witte, 2017 Livebox a.s. Licensed under the Apache License (2.0)
 					</div>
 				</div>
 			</div> {* END OF main * }
