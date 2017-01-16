@@ -9,8 +9,8 @@
 	<body>
 		<div id="wrapper">
 			<div id="header">
-            <img src="img/livebox-logo.png">
-				PowerDNS Webinterface
+            <img src="img/livebox-logo.png" height="26px" alt="Livebox a.s.">
+				DNS Webinterface
 				{if $app->Auth->isAuthed()}
 					<div class="logout_button">
 						{t}Logged in as{/t} {$_SESSION.auth.username}&nbsp;&nbsp;&nbsp;&nbsp;
