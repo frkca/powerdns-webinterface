@@ -20,10 +20,11 @@ h2 {
 	font-weight: bold;
 	font-size: 15px;
 	background-color: #515151;
-	border-bottom: 10px solid #1967ba;
+	border-bottom: 8px solid #1967ba;
 	height: 20px;
 	color: #dddddd;
 	padding: 10px;
+    vertical-align: middle;
 }
 
 #menu {
